@@ -22,6 +22,9 @@ setup(
         'gTTS==2.3.2',
         'pydub==0.25.1',
     ],
+    package_data={
+        'readthis': ['data/*.txt'],
+    },
     long_description=long_description,
     long_description_content_type='text/markdown'
 )

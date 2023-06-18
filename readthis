@@ -5,7 +5,7 @@ from io import BytesIO
 from pydub import AudioSegment
 from pydub.playback import play as pydub_play
 import argparse
-import sys
+import sys, os
 
 import concurrent.futures
 
@@ -57,13 +57,15 @@ def handle_limits(text):
 
 if __name__ == '__main__':
 
+    default_text = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'default_text.txt')
+
     parser = argparse.ArgumentParser(description='reads a text using google API')
     parser.add_argument(
         '--lang', '-l', metavar='LANG', default='en',
         help='Choose language to use for reading.'
     )
     parser.add_argument(
-        'text', metavar='FILE',
+        'text', metavar='FILE', nargs='?', default=default_text,
         help='File to read, or - for stdin'
     )
     args = parser.parse_args()
@@ -78,4 +80,3 @@ if __name__ == '__main__':
 
     fragments = handle_limits(text)
     read_text(fragments, args.lang)
-
