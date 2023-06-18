@@ -14,15 +14,13 @@ setup(
     url='https://github.com/entropyqueen/readit',
     license='MIT',
     scripts=['readit'],
+    setup_requires=[
+        'setuptools',
+        'wheel',
+    ],
     install_requires=[
-        'certifi==2023.5.7',
-        'charset-normalizer==3.1.0',
-        'click==8.1.3',
         'gTTS==2.3.2',
-        'idna==3.4',
         'pydub==0.25.1',
-        'requests==2.31.0',
-        'urllib3==2.0.3',
     ],
     long_description=long_description,
     long_description_content_type='text/markdown'
