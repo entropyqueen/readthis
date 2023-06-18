@@ -1,1 +1,1 @@
-recursive-include *.txt
+recursive-include src *.txt
