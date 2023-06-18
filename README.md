@@ -1,6 +1,6 @@
-# ReadIt
+# Readthis
 
-ReadIt is a command line tool that reads aloud a given text file using the gTTS (Google Text-to-Speech) interface.
+Readthis is a command line tool that reads aloud a given text file using the gTTS (Google Text-to-Speech) interface.
 
 ## Usage
 
@@ -15,7 +15,7 @@ $ readthis [OPTIONS] FILE
 ### Options
 
 - `-h, --help`: Show the help message and exit.
-- `--lang LANG, -l LANG`: Choose the language to use for reading. Specify the language using the language code (e.g., en for English).
+- `--lang LANG, -l LANG`: Choose the language to use for reading. Specify the language using the language code (e.g., fr for French). Defaults to English.
 
 ## Installation
 
@@ -38,5 +38,5 @@ $ echo "Bonjour, comment ça va ?" | readthis -l fr -
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](./LICENCE).
 
