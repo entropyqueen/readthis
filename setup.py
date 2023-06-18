@@ -7,7 +7,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='readthis',
-    version='0.0.6',
+    version='0.0.7',
     description='readthis - A command line tool to read a text file aloud',
     author='Emy Canton',
     author_email='emy.canton@proton.me',
@@ -25,9 +25,10 @@ setup(
     package_data={
         'readthis': ['readthis/data/*.txt'],
     },
+    include_package_data=True,
     entry_points={
         'console_scripts': [
-            'readthis = readthis.readthis:__main__',
+            'readthis = readthis.readthis:main',
         ],
     },
     long_description=long_description,
