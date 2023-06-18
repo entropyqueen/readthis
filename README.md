@@ -5,7 +5,7 @@ ReadIt is a command line tool that reads aloud a given text file using the gTTS 
 ## Usage
 
 ```bash
-$ readit [OPTIONS] FILE
+$ readthis [OPTIONS] FILE
 ```
 
 ### Positional Arguments
@@ -20,7 +20,7 @@ $ readit [OPTIONS] FILE
 ## Installation
 
 ```bash
-$ pip install readit
+$ pip install readthis
 ```
 
 ## Examples
@@ -28,12 +28,12 @@ $ pip install readit
 - Read a text file named sample.txt in English:
 
 ```bash
-$ readit --lang en sample.txt
+$ readthis --lang en sample.txt
 ```
 
 - Read from stdin in French:
 ```bash
-$ echo "Bonjour, comment ça va ?" | readit -l fr -
+$ echo "Bonjour, comment ça va ?" | readthis -l fr -
 ```
 
 ## License
