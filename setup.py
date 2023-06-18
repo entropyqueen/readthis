@@ -14,13 +14,15 @@ setup(
     url='https://github.com/entropyqueen/readthis',
     license='MIT',
     setup_requires=[
+        'setuptools',
         'wheel',
     ],
     install_requires=[
         'gTTS==2.3.2',
         'pydub==0.25.1',
     ],
-    packages=find_packages(),
+    packages=['readthis'],
+    package_dir={'readthis': 'src/readthis'},
     package_data={
         'readthis': ['data/*.txt'],
     },
