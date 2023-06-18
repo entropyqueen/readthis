@@ -6,9 +6,11 @@ from pydub import AudioSegment
 from pydub.playback import play as pydub_play
 import argparse
 import sys, os
-
 import concurrent.futures
+import pkg_resources
 
+
+DATA_PATH = pkg_resources.resource_filename('readthis', 'data/')
 
 MAX_GTTS_INPUT = 300 # Max bytes (found 5000 online)
 MAX_GTTS_RQTS = 1000 # Max requests *per minutes* (found 1000 online)
@@ -57,7 +59,7 @@ def handle_limits(text):
 
 if __name__ == '__main__':
 
-    default_text = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'default_text.txt')
+    default_text = os.path.join(DATA_PATH, 'default_text.txt')
 
     parser = argparse.ArgumentParser(description='reads a text using google API')
     parser.add_argument(
