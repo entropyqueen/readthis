@@ -30,7 +30,7 @@ def get_audio(text, lang):
 
 def read_text(fragments, lang):
 
-    mp3_fp = get_audio(fragments[0], args.lang)
+    mp3_fp = get_audio(fragments[0], lang)
     if len(fragments) == 1:
         play_audio(mp3_fp)
 
@@ -38,7 +38,7 @@ def read_text(fragments, lang):
 
         with concurrent.futures.ThreadPoolExecutor() as executor:
             executor.submit(play_audio, mp3_fp)
-            mp3_fp = get_audio(fragments[i], args.lang)
+            mp3_fp = get_audio(fragments[i], lang)
 
 def handle_limits(text):
 
@@ -82,6 +82,7 @@ def main():
 
     fragments = handle_limits(text)
     read_text(fragments, args.lang)
+
 
 if __name__ == '__main__':
     main()
