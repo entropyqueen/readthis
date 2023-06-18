@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 # read the contents of your README file
 from pathlib import Path
@@ -7,7 +7,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='readthis',
-    version='0.0.8',
+    version='0.0.9',
     description='readthis - A command line tool to read a text file aloud',
     author='Emy Canton',
     author_email='emy.canton@proton.me',
@@ -20,7 +20,10 @@ setup(
         'gTTS==2.3.2',
         'pydub==0.25.1',
     ],
-    packages=['readthis'],
+    packages=find_packages(),
+    package_data={
+        'readthis': ['data/*.txt'],
+    },
     include_package_data=True,
     entry_points={
         'console_scripts': [
