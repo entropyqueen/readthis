@@ -57,7 +57,7 @@ def handle_limits(text):
             fragments.append(token)
     return fragments
 
-if __name__ == '__main__':
+def main():
 
     default_text = os.path.join(DATA_PATH, 'default_text.txt')
 
@@ -82,3 +82,6 @@ if __name__ == '__main__':
 
     fragments = handle_limits(text)
     read_text(fragments, args.lang)
+
+if __name__ == '__main__':
+    main()
