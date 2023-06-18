@@ -39,8 +39,3 @@ jobs:
     
     - name: Build package
       run: python -m build
-    - name: release
-      uses: actions/upload-artifact@v3
-      with:
-        name: readit-package
-        path: dist/
