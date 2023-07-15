@@ -7,7 +7,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='readthis',
-    version='0.1.0',
+    version='0.1.1',
     description='readthis - A command line tool to read a text file aloud',
     author='Emy Canton',
     author_email='emy.canton@proton.me',
@@ -20,6 +20,8 @@ setup(
     install_requires=[
         'gTTS==2.3.2',
         'pydub==0.25.1',
+        'validators==0.20.0',
+        'trafilatura==1.6.1',
     ],
     packages=['readthis'],
     package_dir={'readthis': 'src/readthis'},
