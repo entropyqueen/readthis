@@ -16,6 +16,7 @@ $ readthis [OPTIONS] FILE
 
 - `-h, --help`: Show the help message and exit.
 - `--lang LANG, -l LANG`: Choose the language to use for reading. Specify the language using the language code (e.g., fr for French). Defaults to English.
+- `--url, -u`: fetch an URL instead of a file
 
 ## Installation
 
@@ -33,7 +34,12 @@ $ readthis --lang en sample.txt
 
 - Read from stdin in French:
 ```bash
-$ echo "Bonjour, comment ça va ?" | readthis -l fr -
+$ echo "Bonjour, comment ça va ?" | readthis -l fr
+```
+
+- Fetch and read an article:
+```bash
+$ readthis -u https://example.com
 ```
 
 ## License
