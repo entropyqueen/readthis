@@ -8,6 +8,8 @@ import argparse
 import sys, os
 import concurrent.futures
 import pkg_resources
+import validators
+import trafilatura
 
 
 DATA_PATH = pkg_resources.resource_filename('readthis', 'data/')
@@ -30,7 +32,11 @@ def get_audio(text, lang):
 
 def read_text(fragments, lang):
 
-    mp3_fp = get_audio(fragments[0], lang)
+    try:
+        mp3_fp = get_audio(fragments[0], lang)
+    except AssertionError:
+        print("No text to read.")
+        return
     if len(fragments) == 1:
         play_audio(mp3_fp)
 
@@ -67,18 +73,30 @@ def main():
         help='Choose language to use for reading.'
     )
     parser.add_argument(
+        '--url', '-u', default=False, action='store_true',
+        help='Treat file as URL for downloading'
+    )
+    parser.add_argument(
         'text', metavar='FILE', nargs='?', default=default_text,
         help='File to read, or - for stdin'
     )
     args = parser.parse_args()
 
     text = ''
-    # Get input from file or stdin
-    if args.text == '-':
+    # Get input from file or stdin and remove easter egg
+    if (args.text == '-' or args.text == default_text) and not args.url:
         text = sys.stdin.read()
     else:
-        with open(args.text) as f:
-            text = f.read()
+        if args.url:
+            if validators.url(args.text):
+                dl_text = trafilatura.fetch_url(args.text)
+                text = trafilatura.extract(dl_text)
+            else:
+                print("Please provide a url when using --url or -u")
+                return
+        else:
+            with open(args.text) as f:
+                text = f.read()
 
     fragments = handle_limits(text)
     read_text(fragments, args.lang)
